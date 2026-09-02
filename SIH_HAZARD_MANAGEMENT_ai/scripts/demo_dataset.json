@@ -1,0 +1,464 @@
+{
+  "incidents": [
+    {
+      "incident_id": "INC-001",
+      "request_id": "INC-001",
+      "created_at": "2026-08-31T10:21:25.484113+00:00",
+      "latitude": 20.4625,
+      "longitude": 85.8828,
+      "facts": {
+        "needs": [
+          "rescue",
+          "medical"
+        ],
+        "people_count": 6,
+        "trapped": true,
+        "injured": true,
+        "injury_count": 1,
+        "medical_issue": null,
+        "vulnerable_people": [
+          "elderly",
+          "child"
+        ],
+        "environmental_conditions": [
+          "flooding",
+          "water_entered_house"
+        ],
+        "location_mentioned": null
+      },
+      "severity_features": {
+        "immediate_rescue": true,
+        "medical_attention": true,
+        "multiple_people": true,
+        "vulnerable_person": true
+      },
+      "priority": {
+        "score": 100,
+        "level": "CRITICAL",
+        "reasons": [
+          "Citizen is trapped",
+          "Injury is reported",
+          "Vulnerable person is present",
+          "Multiple people are affected",
+          "Environmental hazard is reported"
+        ]
+      },
+      "confidence": {
+        "needs": 0.0,
+        "people_count": 0.0,
+        "trapped": 0.0,
+        "injured": 0.0
+      },
+      "status": "UNASSIGNED",
+      "assigned_team": null,
+      "assigned_resource": null
+    },
+    {
+      "incident_id": "INC-002",
+      "request_id": "INC-002",
+      "created_at": "2026-08-31T07:21:25.484113+00:00",
+      "latitude": 20.465,
+      "longitude": 85.879,
+      "facts": {
+        "needs": [
+          "evacuation"
+        ],
+        "people_count": 2,
+        "trapped": false,
+        "injured": false,
+        "injury_count": null,
+        "medical_issue": null,
+        "vulnerable_people": [
+          "elderly",
+          "mobility_impaired"
+        ],
+        "environmental_conditions": [
+          "flooding"
+        ],
+        "location_mentioned": null
+      },
+      "severity_features": {
+        "immediate_rescue": false,
+        "medical_attention": false,
+        "multiple_people": true,
+        "vulnerable_person": true
+      },
+      "priority": {
+        "score": 35,
+        "level": "MEDIUM",
+        "reasons": [
+          "Vulnerable person is present",
+          "Multiple people are affected",
+          "Environmental hazard is reported"
+        ]
+      },
+      "confidence": {
+        "needs": 0.0,
+        "people_count": 0.0,
+        "trapped": 0.0,
+        "injured": 0.0
+      },
+      "status": "UNASSIGNED",
+      "assigned_team": null,
+      "assigned_resource": null
+    },
+    {
+      "incident_id": "INC-003",
+      "request_id": "INC-003",
+      "created_at": "2026-08-28T16:21:25.484113+00:00",
+      "latitude": 19.82,
+      "longitude": 85.84,
+      "facts": {
+        "needs": [
+          "food",
+          "water",
+          "shelter"
+        ],
+        "people_count": 40,
+        "trapped": false,
+        "injured": false,
+        "injury_count": null,
+        "medical_issue": null,
+        "vulnerable_people": [],
+        "environmental_conditions": [
+          "flooding",
+          "road_blocked"
+        ],
+        "location_mentioned": null
+      },
+      "severity_features": {
+        "immediate_rescue": false,
+        "medical_attention": false,
+        "multiple_people": true,
+        "vulnerable_person": false
+      },
+      "priority": {
+        "score": 40,
+        "level": "MEDIUM",
+        "reasons": [
+          "Multiple people are affected",
+          "Environmental hazard is reported",
+          "Basic assistance is required"
+        ]
+      },
+      "confidence": {
+        "needs": 0.0,
+        "people_count": 0.0,
+        "trapped": 0.0,
+        "injured": 0.0
+      },
+      "status": "UNASSIGNED",
+      "assigned_team": null,
+      "assigned_resource": null
+    },
+    {
+      "incident_id": "INC-004",
+      "request_id": "INC-004",
+      "created_at": "2026-08-31T11:51:25.484113+00:00",
+      "latitude": 20.2961,
+      "longitude": 85.8245,
+      "facts": {
+        "needs": [
+          "medical"
+        ],
+        "people_count": 1,
+        "trapped": false,
+        "injured": true,
+        "injury_count": 1,
+        "medical_issue": null,
+        "vulnerable_people": [],
+        "environmental_conditions": [],
+        "location_mentioned": null
+      },
+      "severity_features": {
+        "immediate_rescue": false,
+        "medical_attention": true,
+        "multiple_people": false,
+        "vulnerable_person": false
+      },
+      "priority": {
+        "score": 50,
+        "level": "HIGH",
+        "reasons": [
+          "Injury is reported"
+        ]
+      },
+      "confidence": {
+        "needs": 0.0,
+        "people_count": 0.0,
+        "trapped": 0.0,
+        "injured": 0.0
+      },
+      "status": "UNASSIGNED",
+      "assigned_team": null,
+      "assigned_resource": null
+    },
+    {
+      "incident_id": "INC-005",
+      "request_id": "INC-005",
+      "created_at": "2026-08-31T08:21:25.484113+00:00",
+      "latitude": 20.299,
+      "longitude": 85.83,
+      "facts": {
+        "needs": [
+          "rescue",
+          "evacuation"
+        ],
+        "people_count": 15,
+        "trapped": true,
+        "injured": false,
+        "injury_count": null,
+        "medical_issue": null,
+        "vulnerable_people": [
+          "child"
+        ],
+        "environmental_conditions": [
+          "flooding"
+        ],
+        "location_mentioned": null
+      },
+      "severity_features": {
+        "immediate_rescue": true,
+        "medical_attention": false,
+        "multiple_people": true,
+        "vulnerable_person": true
+      },
+      "priority": {
+        "score": 85,
+        "level": "CRITICAL",
+        "reasons": [
+          "Citizen is trapped",
+          "Vulnerable person is present",
+          "Multiple people are affected",
+          "Environmental hazard is reported"
+        ]
+      },
+      "confidence": {
+        "needs": 0.0,
+        "people_count": 0.0,
+        "trapped": 0.0,
+        "injured": 0.0
+      },
+      "status": "UNASSIGNED",
+      "assigned_team": null,
+      "assigned_resource": null
+    },
+    {
+      "incident_id": "INC-006",
+      "request_id": "INC-006",
+      "created_at": "2026-08-31T11:21:25.484113+00:00",
+      "latitude": 20.46,
+      "longitude": 85.885,
+      "facts": {
+        "needs": [
+          "medical",
+          "evacuation"
+        ],
+        "people_count": 1,
+        "trapped": false,
+        "injured": false,
+        "injury_count": null,
+        "medical_issue": null,
+        "vulnerable_people": [
+          "pregnant"
+        ],
+        "environmental_conditions": [],
+        "location_mentioned": null
+      },
+      "severity_features": {
+        "immediate_rescue": false,
+        "medical_attention": true,
+        "multiple_people": false,
+        "vulnerable_person": true
+      },
+      "priority": {
+        "score": 45,
+        "level": "MEDIUM",
+        "reasons": [
+          "Medical attention is required",
+          "Vulnerable person is present"
+        ]
+      },
+      "confidence": {
+        "needs": 0.0,
+        "people_count": 0.0,
+        "trapped": 0.0,
+        "injured": 0.0
+      },
+      "status": "UNASSIGNED",
+      "assigned_team": null,
+      "assigned_resource": null
+    },
+    {
+      "incident_id": "INC-007",
+      "request_id": "INC-007",
+      "created_at": "2026-08-31T06:21:25.484113+00:00",
+      "latitude": 19.81,
+      "longitude": 85.835,
+      "facts": {
+        "needs": [
+          "food",
+          "water"
+        ],
+        "people_count": 3,
+        "trapped": false,
+        "injured": false,
+        "injury_count": null,
+        "medical_issue": null,
+        "vulnerable_people": [],
+        "environmental_conditions": [],
+        "location_mentioned": null
+      },
+      "severity_features": {
+        "immediate_rescue": false,
+        "medical_attention": false,
+        "multiple_people": true,
+        "vulnerable_person": false
+      },
+      "priority": {
+        "score": 30,
+        "level": "MEDIUM",
+        "reasons": [
+          "Multiple people are affected",
+          "Basic assistance is required"
+        ]
+      },
+      "confidence": {
+        "needs": 0.0,
+        "people_count": 0.0,
+        "trapped": 0.0,
+        "injured": 0.0
+      },
+      "status": "UNASSIGNED",
+      "assigned_team": null,
+      "assigned_resource": null
+    },
+    {
+      "incident_id": "INC-008",
+      "request_id": "INC-008",
+      "created_at": "2026-08-31T12:01:37.484113+00:00",
+      "latitude": 19.3149,
+      "longitude": 84.7941,
+      "facts": {
+        "needs": [
+          "rescue",
+          "medical"
+        ],
+        "people_count": 4,
+        "trapped": true,
+        "injured": true,
+        "injury_count": 2,
+        "medical_issue": null,
+        "vulnerable_people": [],
+        "environmental_conditions": [
+          "fire"
+        ],
+        "location_mentioned": null
+      },
+      "severity_features": {
+        "immediate_rescue": true,
+        "medical_attention": true,
+        "multiple_people": true,
+        "vulnerable_person": false
+      },
+      "priority": {
+        "score": 100,
+        "level": "CRITICAL",
+        "reasons": [
+          "Citizen is trapped",
+          "Injury is reported",
+          "Multiple people are affected",
+          "Environmental hazard is reported"
+        ]
+      },
+      "confidence": {
+        "needs": 0.0,
+        "people_count": 0.0,
+        "trapped": 0.0,
+        "injured": 0.0
+      },
+      "status": "UNASSIGNED",
+      "assigned_team": null,
+      "assigned_resource": null
+    }
+  ],
+  "resources": [
+    {
+      "name": "Ambulance Unit 1",
+      "type": "ambulance",
+      "latitude": 20.298,
+      "longitude": 85.826,
+      "total_units": 2,
+      "available_units": 2,
+      "capacity_per_unit": 4,
+      "resource_id": "RES-AMB-1",
+      "status": "ACTIVE"
+    },
+    {
+      "name": "NDRF Team Cuttack",
+      "type": "ndrf_team",
+      "latitude": 20.46,
+      "longitude": 85.88,
+      "total_units": 2,
+      "available_units": 2,
+      "capacity_per_unit": 10,
+      "resource_id": "RES-NDRF-1",
+      "status": "ACTIVE"
+    },
+    {
+      "name": "Rescue Boats Cuttack",
+      "type": "boat",
+      "latitude": 20.461,
+      "longitude": 85.881,
+      "total_units": 3,
+      "available_units": 3,
+      "capacity_per_unit": 6,
+      "resource_id": "RES-BOAT-1",
+      "status": "ACTIVE"
+    },
+    {
+      "name": "Fire Brigade Berhampur",
+      "type": "fire_brigade",
+      "latitude": 19.314,
+      "longitude": 84.79,
+      "total_units": 1,
+      "available_units": 1,
+      "capacity_per_unit": 8,
+      "resource_id": "RES-FIRE-1",
+      "status": "ACTIVE"
+    },
+    {
+      "name": "Food Supply Truck",
+      "type": "food_supply",
+      "latitude": 20.295,
+      "longitude": 85.82,
+      "total_units": 2,
+      "available_units": 2,
+      "capacity_per_unit": 25,
+      "resource_id": "RES-FOOD-1",
+      "status": "ACTIVE"
+    },
+    {
+      "name": "Water Tanker Puri",
+      "type": "water_tanker",
+      "latitude": 19.815,
+      "longitude": 85.832,
+      "total_units": 1,
+      "available_units": 1,
+      "capacity_per_unit": 30,
+      "resource_id": "RES-WATER-1",
+      "status": "ACTIVE"
+    },
+    {
+      "name": "Shelter Unit Puri",
+      "type": "shelter_unit",
+      "latitude": 19.812,
+      "longitude": 85.828,
+      "total_units": 1,
+      "available_units": 1,
+      "capacity_per_unit": 50,
+      "resource_id": "RES-SHELTER-1",
+      "status": "ACTIVE"
+    }
+  ]
+}

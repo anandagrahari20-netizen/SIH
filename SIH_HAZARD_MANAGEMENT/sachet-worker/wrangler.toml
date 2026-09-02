@@ -1,0 +1,9 @@
+name = "sachet-proxy"
+main = "worker.js"
+compatibility_date = "2024-11-01"
+
+# Publish to <name>.<your-subdomain>.workers.dev
+workers_dev = true
+
+# No KV / bindings needed — the edge cache (caches.default) is used
+# for the ~120s response cache.

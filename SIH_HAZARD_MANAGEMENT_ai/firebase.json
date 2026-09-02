@@ -1,0 +1,31 @@
+{
+  "functions": {
+    "source": ".",
+    "runtime": "python311",
+    "ignore": [
+      "venv",
+      ".venv",
+      "**/__pycache__/**",
+      "*.pyc",
+      "node_modules",
+      "firebase.json",
+      ".firebaserc",
+      ".firebase",
+      ".git",
+      ".gitignore",
+      "firebase-service-account.json",
+      "firebase-service-account.example.json",
+      "Dockerfile",
+      ".dockerignore",
+      ".gcloudignore",
+      "Procfile",
+      "render.yaml",
+      "runtime.txt",
+      "README.md",
+      "API_CONTRACT.md",
+      "test_*.py",
+      "tests",
+      "scripts"
+    ]
+  }
+}

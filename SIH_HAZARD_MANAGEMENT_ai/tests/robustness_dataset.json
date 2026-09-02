@@ -1,0 +1,132 @@
+[
+  {
+    "id": "R001",
+    "text": "ghar me paani ghus gya h hum 4 log h",
+    "expected": {
+      "people_count": 4,
+      "trapped": null,
+      "injured": null,
+      "medical_issue": null,
+      "vulnerable_people": [],
+      "environmental_conditions": ["water_entered_house"],
+      "needs": []
+    }
+  },
+  {
+    "id": "R002",
+    "text": "Papa ko saans lene me prob hai pls doctor bhejo",
+    "expected": {
+      "people_count": null,
+      "trapped": null,
+      "injured": null,
+      "medical_issue": "breathing difficulty",
+      "vulnerable_people": [],
+      "environmental_conditions": [],
+      "needs": ["medical"]
+    }
+  },
+  {
+    "id": "R003",
+    "text": "Hum log flood ke wajah se chhat par hain, neeche pani bahut badh raha hai",
+    "expected": {
+      "people_count": null,
+      "trapped": true,
+      "injured": null,
+      "medical_issue": null,
+      "vulnerable_people": [],
+      "environmental_conditions": ["flooding"],
+      "needs": ["rescue"]
+    }
+  },
+  {
+    "id": "R004",
+    "text": "2 bacche aur meri dadi ghar me hain, dadi chal nahi sakti",
+    "expected": {
+      "people_count": null,
+      "trapped": null,
+      "injured": null,
+      "medical_issue": null,
+      "vulnerable_people": ["child", "elderly", "mobility_impaired"],
+      "environmental_conditions": [],
+      "needs": []
+    }
+  },
+  {
+    "id": "R005",
+    "text": "khana pani dono chahiye jaldi",
+    "expected": {
+      "people_count": null,
+      "trapped": null,
+      "injured": null,
+      "medical_issue": null,
+      "vulnerable_people": [],
+      "environmental_conditions": [],
+      "needs": ["food", "water"]
+    }
+  },
+  {
+    "id": "R006",
+    "text": "Need food for 12 people, water for everyone",
+    "expected": {
+      "people_count": 12,
+      "trapped": null,
+      "injured": null,
+      "medical_issue": null,
+      "vulnerable_people": [],
+      "environmental_conditions": [],
+      "needs": ["food", "water"]
+    }
+  },
+  {
+    "id": "R007",
+    "text": "Road blocked hai but hum safe hain, no rescue needed",
+    "expected": {
+      "people_count": null,
+      "trapped": false,
+      "injured": null,
+      "medical_issue": null,
+      "vulnerable_people": [],
+      "environmental_conditions": ["road_blocked"],
+      "needs": []
+    }
+  },
+  {
+    "id": "R008",
+    "text": "Meri mother ko dawa ki zarurat hai aur unko chalne mein bhi dikkat hai",
+    "expected": {
+      "people_count": null,
+      "trapped": null,
+      "injured": null,
+      "medical_issue": "medicine needed",
+      "vulnerable_people": ["mobility_impaired"],
+      "environmental_conditions": [],
+      "needs": ["medical"]
+    }
+  },
+  {
+    "id": "R009",
+    "text": "Please help. Everything is bad here.",
+    "expected": {
+      "people_count": null,
+      "trapped": null,
+      "injured": null,
+      "medical_issue": null,
+      "vulnerable_people": [],
+      "environmental_conditions": [],
+      "needs": []
+    }
+  },
+  {
+    "id": "R010",
+    "text": "Cuttack Sector 5 mein ghar ke andar pani aa gaya hai, hum safe hain",
+    "expected": {
+      "people_count": null,
+      "trapped": false,
+      "injured": null,
+      "medical_issue": null,
+      "vulnerable_people": [],
+      "environmental_conditions": ["water_entered_house"],
+      "needs": []
+    }
+  }
+]

@@ -1,0 +1,35 @@
+# ================= SECRETS — never commit =================
+**/firebase-service-account*.json
+*serviceaccount*.json
+*service-account*.json
+# ...but DO keep the committed template
+!**/*service-account*.example.json
+!**/*serviceaccount*.example.json
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+
+# ================= build / deps =================
+**/node_modules/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+
+# ================= tooling caches =================
+**/.firebase/
+.wrangler/
+firebase-debug*.log
+*.log
+
+# ================= junk =================
+*.patch
+*.tgz
+.DS_Store
+.vscode/
+.idea/

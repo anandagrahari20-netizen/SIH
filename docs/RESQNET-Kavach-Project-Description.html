@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>RESQNET + KAVACH — Project Description</title>
+<style>
+  @page { size: A4; margin: 16mm 15mm 18mm 15mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-size: 10.2px; line-height: 1.5; color: #1f2733; margin: 0;
+  }
+  h1, h2, h3 { color: #0f2c4d; line-height: 1.25; margin: 0 0 .35em; font-weight: 700; }
+  h1 { font-size: 23px; }
+  h2 { font-size: 15.5px; margin-top: 1.6em; padding-bottom: .28em; border-bottom: 2px solid #f05a28; }
+  h3 { font-size: 12px; margin-top: 1.15em; color: #1c3655; }
+  h2:first-of-type { margin-top: .6em; }
+  p { margin: .45em 0; }
+  ul, ol { margin: .4em 0 .6em; padding-left: 1.25em; }
+  li { margin: .18em 0; }
+  strong { color: #12324f; }
+  code { font-family: "Cascadia Mono", Consolas, monospace; background: #eef1f5; padding: 1px 4px; border-radius: 3px; font-size: .92em; }
+  a { color: #1c3655; }
+  table { border-collapse: collapse; width: 100%; margin: .7em 0; font-size: 9.3px; }
+  th, td { border: 1px solid #cdd6e0; padding: 5px 7px; text-align: left; vertical-align: top; }
+  th { background: #12324f; color: #fff; font-weight: 600; }
+  tbody tr:nth-child(even) { background: #f4f7fa; }
+  pre {
+    font-family: "Cascadia Mono", Consolas, monospace;
+    background: #0f2233; color: #e6edf3; border-radius: 5px;
+    padding: 10px 12px; overflow: hidden; white-space: pre;
+    font-size: 7.3px; line-height: 1.32; margin: .8em 0;
+  }
+  blockquote {
+    margin: .6em 0; padding: .5em .9em; background: #fff5ef;
+    border-left: 3px solid #f05a28; color: #3a2a20; font-style: italic;
+  }
+  .cover { padding: 8mm 0 5mm; border-bottom: 3px solid #0f2c4d; margin-bottom: 4mm; }
+  .cover .sub { color: #5a6b7d; font-size: 12px; margin-top: 4px; }
+  .cover .tag { display: inline-block; margin-top: 10px; background: #12324f; color: #fff;
+                font-size: 9px; letter-spacing: .5px; padding: 3px 9px; border-radius: 3px; text-transform: uppercase; }
+  table, pre, blockquote { break-inside: avoid; }
+  h2, h3 { break-after: avoid; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <h1>RESQNET&nbsp;+&nbsp;KAVACH</h1>
+  <div class="sub">Unified Real-Time Disaster Coordination Platform &mdash; Complete Project Description</div>
+  <div class="tag">Smart India Hackathon</div>
+</div>
+
+<h2>Problem Statement (as addressed)</h2>
+<blockquote>During floods / cyclones / landslides, delayed information flow between citizens, NDRF, and local administration causes poor resource allocation and slower rescue response.</blockquote>
+<p>The core failure in Indian disaster response is not a lack of resources &mdash; it is a <strong>coordination gap</strong>. Three groups act on three different, lagging pictures of the same event:</p>
+<ul>
+  <li><strong>Citizens</strong> know exactly what is happening at their location but have no structured channel to report it &mdash; they call overloaded helplines or post on social media.</li>
+  <li><strong>Local administration / District Disaster Management Authority</strong> receives fragmented phone reports and paper registers; they cannot see where the need is concentrated or which team is closest.</li>
+  <li><strong>NDRF / rescue teams</strong> are dispatched on verbal instructions, often to the wrong place or in the wrong order, while other clusters wait.</li>
+</ul>
+<p>Meanwhile <strong>IMD / SACHET official warnings</strong> live in a separate government portal that neither citizens nor field teams routinely watch.</p>
+<p><strong>RESQNET + KAVACH closes this loop.</strong> It is a single map-based coordination platform with two live feeds layered on one authority dashboard &mdash; <strong>geo-tagged citizen reports</strong> (pin + severity + description) and <strong>available resources</strong> (shelters, rescue teams, ambulances, supply stock, each with a capacity / status field) &mdash; plus a <strong>real-time allocation engine</strong> that tells the operator which unit should move to which incident cluster, in what order, and updates the map live as new reports arrive.</p>
+
+<h2>1. How It Addresses the Problem</h2>
+<table>
+<thead><tr><th style="width:38%">Gap in current response</th><th>What RESQNET + KAVACH does</th></tr></thead>
+<tbody>
+<tr><td>Citizens have no structured reporting channel</td><td><strong>KAVACH app</strong>: one-tap SOS, AI SMS chat, and an AI voice helpline (IVR). Every report is geo-tagged, carries photo / text, and is parsed into structured facts (people count, injured, trapped, needs, vulnerable persons).</td></tr>
+<tr><td>No-internet zones during disasters</td><td><strong>SMS decision-tree + IVR voice</strong> paths work with zero data. The AI helpline runs a full offline scripted flow when the backend is unreachable; triage still works on deterministic rules alone.</td></tr>
+<tr><td>Authority has no single operational picture</td><td><strong>RESQNET dashboard</strong>: one Azure Maps view with citizen-report pins (colour-coded by AI-computed severity), discovered resources, live caller GPS, and official SACHET / IMD warning polygons &mdash; all clipped to the operator's district.</td></tr>
+<tr><td>Official IMD / SACHET alerts sit in a separate silo</td><td>The dashboard pulls the <strong>live SACHET CAP feed</strong> (via a proxy), draws the affected zones as map polygons, and lets the operator fire an area-targeted broadcast that reaches citizens inside KAVACH.</td></tr>
+<tr><td>Resources dispatched ad-hoc, wrong order, wrong place</td><td><strong>Allocation engine</strong>: clusters related reports, ranks them in <strong>strict severity order</strong> (every CRITICAL before any HIGH before any MEDIUM), matches each cluster's specific needs to compatible resource types, spreads the load across facilities, and <strong>depletes availability</strong> as units are committed so the next decision only sees what is genuinely free. Shown live on the map as animated routes.</td></tr>
+<tr><td>Citizen never knows if help is coming</td><td>KAVACH shows a <strong>4-stage request tracker</strong> (Received &rarr; Assigned &rarr; En route &rarr; Resolved) that updates the instant the operator changes status.</td></tr>
+</tbody>
+</table>
+
+<h3>The judged core &mdash; the allocation logic &mdash; goes well beyond nearest-available matching</h3>
+<ol>
+<li><strong>Cluster</strong> unresolved incidents (within 2&nbsp;km, within a 6-hour window, sharing a need).</li>
+<li><strong>Score urgency (0&ndash;100)</strong> per cluster with a trained linear model over people affected, injured, trapped, aggregate demand, time elapsed, and the deterministic priority score.</li>
+<li><strong>Order the queue by severity tier first</strong> &mdash; a large MEDIUM incident can never overtake a CRITICAL one; the urgency score only breaks ties <em>inside</em> a tier.</li>
+<li><strong>Decompose each cluster into per-need requirements</strong> &mdash; injured people drive <em>medical</em> demand, trapped people drive <em>rescue</em> demand, the headcount drives <em>relief</em> demand. A cluster needing both rescue and medical gets an NDRF team <strong>and</strong> an ambulance, not two of whichever is closest.</li>
+<li><strong>Rank candidate resources</strong> by <code>suitability (distance + ETA) &times; reservation (scarcity vs urgency) &times; spread (penalty for units already committed this run)</code>.</li>
+<li><strong>Greedily assign units</strong> until the cluster's people are covered, deducting each unit from the running availability pool.</li>
+<li><strong>Commit</strong> &mdash; availability is decremented in the database, incidents move to ASSIGNED, and the plan is pushed to citizens.</li>
+</ol>
+<p>In the working prototype (Kanpur Nagar, 5 live incidents, 67 discovered facilities): CRITICAL clusters were served first, 7 units dispatched to <strong>7 different facilities</strong>, the district's &ldquo;Resources Available&rdquo; counter dropped 67 &rarr; 60, and where the district had no dedicated water tanker or shelter unit, the nearest available team was substituted with an explicit warning to the operator.</p>
+
+<h2>2. Innovation and Uniqueness</h2>
+<h3>A. Deterministic core, AI at the edges &mdash; fully auditable decisions</h3>
+<p>The LLM only <em>reads and phrases</em>. It never decides severity, priority, or allocation. Every operational number is produced by explicit rule-based code with a human-readable reason list (&ldquo;Injury is reported&rdquo;, &ldquo;Vulnerable person present&rdquo;, &ldquo;No dedicated water unit in this district &mdash; nearest medical team substituted&rdquo;). An authority can defend or override every recommendation &mdash; critical for government adoption where a black-box dispatch decision is unacceptable.</p>
+<h3>B. Severity as a hard constraint, not a soft score</h3>
+<p>Most allocation demos rank incidents by a single blended score, which lets a high-headcount low-severity incident jump the queue. RESQNET enforces strict tier ordering (CRITICAL &rarr; HIGH &rarr; MEDIUM &rarr; LOW); the learned model only discriminates <em>within</em> a tier. This mirrors how a real control room triages.</p>
+<h3>C. Need-aware, not headcount-aware, matching</h3>
+<p>The allocator sends the <em>right kind</em> of unit for each requirement family and spreads load across facilities, instead of dividing a headcount by capacity and sending everything to the single nearest depot.</p>
+<h3>D. Live, depleting resource state</h3>
+<p>Committing an allocation actually decrements <code>available_units</code> in the database and reassigns incidents, so a second allocation run sees a genuinely smaller pool. The map shows the district's capacity shrinking in real time &mdash; the coordination value made visible.</p>
+<h3>E. Trained triage model grounded in doctrine, not hand-tuned numbers</h3>
+<p>The urgency model is trained by gradient descent on synthetic scenarios labelled by a rule-based &ldquo;expert&rdquo; function encoding real triage doctrine &mdash; START mass-casualty triage, the trauma golden hour, the search-and-rescue 36-hour entrapment window. Doctrine-derived interaction features (entrapment as a <em>proportion</em> of the group, time-pressure on two different horizons, trapped-AND-injured compounding) let a transparent linear model approximate non-linear expert judgement: <strong>test error dropped ~3&times; (MAE 11.1 &rarr; 3.7 on a 0&ndash;100 scale)</strong>, and the model independently learned to weight injury / entrapment <em>ratios</em> over raw counts. The pipeline is built so real logged incident-outcome data becomes a drop-in replacement for the synthetic labels.</p>
+<h3>F. True multi-channel, multilingual intake with graceful degradation</h3>
+<p>App, SMS decision-tree, and AI voice helpline &mdash; all in English / Hindi / Hinglish, with browser speech-to-text and text-to-speech. Every remote dependency (LLM, SACHET proxy, maps API, backend) has a local fallback, so the platform keeps working under exactly the network stress a disaster creates.</p>
+<h3>G. Official + crowd data fused on one canvas</h3>
+<p>IMD / SACHET CAP warnings and citizen reports on the same district-scoped map, with a hazard-specific advisory library (flood, cyclone, earthquake, landslide, heatwave, thunderstorm, fire, tsunami, cold wave) &mdash; because &ldquo;stay indoors&rdquo; is right for a cyclone and dangerous for an earthquake.</p>
+
+<h2>3. Technologies Used</h2>
+<h3>Frontend &mdash; RESQNET dashboard + KAVACH citizen app</h3>
+<table>
+<thead><tr><th style="width:22%">Category</th><th>Technology</th></tr></thead>
+<tbody>
+<tr><td>Core</td><td>HTML5, <strong>vanilla JavaScript</strong> (ES modules + classic scripts), no build step</td></tr>
+<tr><td>Styling</td><td><strong>Tailwind CSS</strong>, Font Awesome, Public Sans / Inter; custom token-based <strong>dark mode</strong></td></tr>
+<tr><td>Maps</td><td><strong>Azure Maps SDK v3</strong> (live incident map, heatmap, alert polygons), <strong>Google Maps JS API</strong> (allocation-simulation map, facility discovery via Places)</td></tr>
+<tr><td>Realtime client</td><td><strong>Firebase Web SDK v10</strong> (Cloud Firestore live listeners)</td></tr>
+<tr><td>Device APIs</td><td>Web Speech API (STT <code>webkitSpeechRecognition</code>, TTS <code>speechSynthesis</code>, hi-IN / en-IN), Geolocation <code>watchPosition</code> (live caller GPS), Web Audio (siren), <code>localStorage</code>, <code>BroadcastChannel</code></td></tr>
+</tbody>
+</table>
+<h3>Backend &mdash; Citizen Intelligence API</h3>
+<table>
+<thead><tr><th style="width:22%">Category</th><th>Technology</th></tr></thead>
+<tbody>
+<tr><td>Runtime</td><td><strong>Python 3</strong>, <strong>FastAPI</strong>, <strong>Uvicorn</strong>, <strong>Pydantic</strong></td></tr>
+<tr><td>Deployment</td><td><strong>Google Cloud Run</strong> &mdash; containerised (Docker), built by Cloud Build, autoscaling, scale-to-zero, HTTPS endpoint</td></tr>
+<tr><td>Secrets</td><td><strong>GCP Secret Manager</strong> (Firebase Admin service-account key)</td></tr>
+<tr><td>DB access</td><td><strong>firebase-admin</strong> (Firestore Admin SDK)</td></tr>
+</tbody>
+</table>
+<h3>AI / ML</h3>
+<table>
+<thead><tr><th style="width:32%">Purpose</th><th>Technology</th></tr></thead>
+<tbody>
+<tr><td>Citizen-message understanding (Hindi / English / Hinglish, SMS shorthand)</td><td><strong>Qwen <code>qwen3:4b</code> via Ollama</strong> (dev) &rarr; deterministic rule engine fallback (always available)</td></tr>
+<tr><td>AI voice helpline phrasing</td><td><strong>Groq</strong> (<code>llama-3.1-8b-instant</code>) &rarr; <strong>Google Gemini</strong> (<code>gemini-2.0-flash</code>) &rarr; fixed multilingual script</td></tr>
+<tr><td>Severity &amp; priority</td><td>Deterministic additive rule engine (no LLM)</td></tr>
+<tr><td>Incident clustering</td><td>Union-find over geographic + temporal + semantic proximity</td></tr>
+<tr><td>Resource allocation</td><td>Custom <strong>linear urgency model</strong>, trained by batch gradient descent on doctrine-labelled synthetic scenarios (no heavy ML library); need&rarr;type compatibility matching; distance / ETA + scarcity + spread scoring</td></tr>
+<tr><td>Routing / ETA</td><td><strong>Google Distance Matrix API</strong>, with a haversine estimate (&times;1.3 @ 30&nbsp;km/h) fallback</td></tr>
+<tr><td>Voice transcription (optional)</td><td>faster-whisper (lazy-loaded, for the audio-upload endpoint)</td></tr>
+</tbody>
+</table>
+<h3>Infrastructure</h3>
+<table>
+<thead><tr><th style="width:32%">Piece</th><th>Platform</th></tr></thead>
+<tbody>
+<tr><td>Static site (both apps)</td><td><strong>Firebase Hosting</strong> (global CDN)</td></tr>
+<tr><td>Real-time database &amp; message bus</td><td><strong>Cloud Firestore</strong></td></tr>
+<tr><td>AI backend</td><td><strong>Google Cloud Run</strong> + Cloud Build + Artifact Registry</td></tr>
+<tr><td>SACHET / IMD alert proxy</td><td><strong>Cloudflare Workers</strong> (edge serverless, CORS + header injection, 120&nbsp;s edge cache)</td></tr>
+<tr><td>Containerisation</td><td>Docker</td></tr>
+<tr><td>Source control</td><td>Git / GitHub</td></tr>
+</tbody>
+</table>
+<h3>External data sources</h3>
+<p>SACHET / NDMA CAP alert feed &middot; IMD warnings &middot; Nominatim (district boundaries) &middot; Photon (Komoot) + Overpass (facility discovery &mdash; hospitals, police, fire stations) &middot; Open-Meteo (weather + forecast).</p>
+<h3>Hardware</h3>
+<p>No custom hardware. Runs on any smartphone browser (citizen) and any desktop browser (control room). Server side is fully serverless. The <strong>SMS / IVR fallback</strong> is designed to run over a telecom SMS gateway / IVR line in production (simulated in the prototype).</p>
+
+<h2>4. Methodology and Implementation Process</h2>
+<h3>4.1 System architecture</h3>
+<pre>
++------------------------ FIREBASE HOSTING (static CDN) ------------------------+
+|                                                                             |
+|   KAVACH (citizen)                      RESQNET (authority dashboard)        |
+|   - SOS / SMS-AI / voice IVR            - one Azure Maps canvas              |
+|   - geo-tagged photo+text reports       - FEED 1: citizen-report pins        |
+|   - live GPS share                        (severity colour + description)    |
+|   - 4-stage request tracker             - FEED 2: resources                  |
+|   - EN / HI / Hinglish, dark mode         (shelters, teams, stock +          |
+|                                            capacity / status)               |
+|                                        - SACHET / IMD alert polygons         |
+|                                        - "Run AI Allocation" -> animated     |
+|                                          resource -> cluster routes          |
++------+---------------------------------------------+-------------------------+
+       | Firestore Web SDK (live onSnapshot)         | HTTPS / REST
+       v                                             v
+==============================          +--------------------------------------+
+|   CLOUD FIRESTORE          |<---------|      GOOGLE CLOUD RUN (FastAPI)       |
+|   (single source of truth  |  Admin   |      Citizen Intelligence API        |
+|    + message bus)          |  SDK     |                                      |
+|                            |          |  /analyze   /incidents               |
+|   incidents                |          |  /helpline/turn                      |
+|   resources                |          |  /resources   /resources/bulk        |
+|   relocations              |          |  /allocate    /allocate/commit       |
+|   caller_locations         |          |                                      |
+==============================          |  PIPELINE (deterministic except      |
+       ^                                |  the phrasing step):                 |
+       |                                |    extract_facts (LLM + rules)       |
++------+-----------------+               |    -> severity -> priority           |
+| CLOUDFLARE WORKER      |               |    -> cluster  -> urgency model      |
+| SACHET CORS proxy      |<-- sachet.ndma.gov.in (IMD / NDMA CAP feed)         |
++-----------------------+                |    -> need-matched greedy allocator  |
+                                         +--+----------------+-----------------+
+                                            v                v
+                                   Ollama / Groq /    Google Distance Matrix
+                                   Gemini (phrasing)  (ETA; haversine fallback)
+</pre>
+
+<h3>4.2 End-to-end data flow (the coordination loop)</h3>
+<pre>
+1. REPORT
+   Citizen -> KAVACH -> SOS / SMS-AI / voice helpline
+   e.g. "Ghar mein paani bhar gaya, hum 6 log hain, papa injured, dadi chal nahi sakti"
+        (v) geo-tagged, photo/text, POST /incidents   (SMS / IVR path if no data)
+
+2. UNDERSTAND  (Cloud Run)
+   LLM drafts structured facts -> deterministic rules validate / re-derive every field
+   -> needs = [rescue, medical], people = 6, injured = true,
+      vulnerable = [elderly, mobility_impaired], env = [water_entered_house]
+
+3. SCORE  (no LLM)
+   severity features -> priority 0-100 + level + reason list  -> CRITICAL
+
+4. STORE & SYNC
+   Firestore incidents/{id}  -> live push to every RESQNET dashboard
+   KAVACH starts streaming caller GPS to caller_locations/{id}
+
+5. VISUALISE  (RESQNET)
+   red pin on the map, row on the Dispatch Board (priority + age + need tags),
+   pulsing caller-GPS marker -- all clipped to the operator's district polygon
+
+6. CLUSTER + ALLOCATE  (Cloud Run  /allocate)
+   group related reports -> urgency score per cluster
+   -> order queue CRITICAL -> HIGH -> MEDIUM -> LOW
+   -> per-need requirements -> rank resources (distance + ETA + scarcity + spread)
+   -> greedily assign units, deduct from availability pool
+   -> recommendations with routes, ETAs, reasons
+
+7. COMMIT + DISPATCH  (RESQNET  /allocate/commit)
+   units animate along routes on the map, tier by tier
+   available_units decremented in Firestore, incidents -> ASSIGNED
+   "Resources Available: 67 -> 60"
+
+8. CLOSE THE LOOP  (KAVACH)
+   citizen's request tracker advances "Assigned -> En route -> Resolved"
+   toast on every status change
+   resolved incidents sink to the bottom of the dashboard board and the citizen list
+
+PARALLEL: RESQNET -> Cloudflare Worker -> SACHET CAP feed -> alert polygons on the map
+          -> operator fires an area-targeted broadcast -> hazard-specific advisory to KAVACH
+</pre>
+
+<h3>4.3 Implementation phases</h3>
+<table>
+<thead><tr><th style="width:5%">Phase</th><th>Deliverable</th><th style="width:22%">Status</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Citizen intake &mdash; KAVACH app: geo-tagged SOS, SMS decision-tree, voice IVR helpline, photo / text</td><td><strong>Working prototype</strong></td></tr>
+<tr><td>2</td><td>AI understanding &mdash; LLM + deterministic fact extraction, severity, priority (Hindi / English / Hinglish)</td><td><strong>Working, tested</strong> (offline fallback verified)</td></tr>
+<tr><td>3</td><td>Authority dashboard &mdash; Azure map, two live feeds, district gate, SACHET overlay, dispatch board</td><td><strong>Working prototype</strong></td></tr>
+<tr><td>4</td><td>Resource discovery &mdash; auto-import real district facilities (Photon / Overpass / Places), capacity / status fields</td><td><strong>Working</strong> (67 real facilities imported for Kanpur Nagar in testing)</td></tr>
+<tr><td>5</td><td>Allocation engine &mdash; clustering, trained urgency model, severity-tiered need-matched greedy allocation, availability depletion, commit</td><td><strong>Working, tested end-to-end</strong></td></tr>
+<tr><td>6</td><td>Deployment &mdash; Firebase Hosting + Cloud Run + Cloudflare Worker + Firestore</td><td>Wired; Cloud Run deploy in progress</td></tr>
+<tr><td>7</td><td>Production SMS / IVR &mdash; integrate a telecom SMS gateway + IVR line behind the existing endpoints</td><td>Planned (endpoints already source-agnostic)</td></tr>
+</tbody>
+</table>
+
+<h3>4.4 Working prototype evidence</h3>
+<ul>
+<li>KAVACH tested in-browser: citizen registered in <strong>Kanpur Nagar, UP</strong>; the location card correctly stays &ldquo;Kanpur Nagar&rdquo; (previously reverted to a hardcoded default); the hazard classifier correctly maps CAP event strings &rarr; flood / cyclone / earthquake / landslide / heatwave / thunderstorm; the &ldquo;Is everyone safe?&rdquo; prompt fires only for an in-area SACHET alert and shows flood-specific vs earthquake-specific instructions; dark mode applies before first paint.</li>
+<li>RESQNET tested against a live local instance of the Cloud Run backend: district gate resolves to Kanpur Nagar, 67 facilities discovered and imported, <strong>AI Allocation run animated 7 units to 7 facilities in CRITICAL &rarr; HIGH &rarr; MEDIUM &rarr; LOW order</strong>, availability counter fell 67 &rarr; 60, substitution warnings shown where the district lacked a resource type, resolved incidents sorted to the bottom of the dispatch board.</li>
+<li>Backend regression test: <code>GET /allocate</code> leaves state untouched; <code>POST /allocate/commit</code> deducts availability and reassigns incidents; a second run correctly sees the depleted pool.</li>
+<li>Urgency model retrained: test MAE 11.12 &rarr; 3.68.</li>
+</ul>
+
+<h2>5. Feasibility Analysis</h2>
+<h3>Technical feasibility &mdash; HIGH</h3>
+<ul>
+<li>Every component is built on mature, free-tier-friendly managed services (Firebase, Cloud Run, Cloudflare, Firestore). No custom infrastructure to operate.</li>
+<li>A working prototype already demonstrates the full loop, including the judged allocation logic.</li>
+<li>Serverless + scale-to-zero means the platform costs almost nothing at idle and scales automatically during a disaster surge.</li>
+<li>The deterministic core has <strong>no hard dependency on the LLM</strong> &mdash; the system delivers structured triage and allocation even with the AI model completely offline, which removes the single biggest technical risk.</li>
+</ul>
+<h3>Operational feasibility &mdash; HIGH, with one dependency</h3>
+<ul>
+<li>District facility data (hospitals, police, fire) is auto-discovered from OpenStreetMap, so a new district is live in minutes with zero manual data entry.</li>
+<li>The authority dashboard needs no training beyond &ldquo;the red pins are urgent, press Run Allocation, adjust status&rdquo; &mdash; it mirrors a physical control-room whiteboard.</li>
+<li>The one real-world dependency is a <strong>telecom partnership</strong> for the production SMS gateway and IVR line; until then the SMS / IVR path is simulated. The application endpoints are already source-agnostic, so this is an integration, not a redesign.</li>
+</ul>
+<h3>Economic feasibility &mdash; HIGH</h3>
+<ul>
+<li>Free tiers cover a district-scale pilot end to end. Estimated cost at real state-scale load is dominated by Maps API calls and can be capped.</li>
+<li>No hardware procurement. No per-seat licensing.</li>
+</ul>
+<h3>Scalability feasibility &mdash; HIGH</h3>
+<ul>
+<li>District scoping means each control room only ever processes its own polygon of data &mdash; the system scales horizontally by district, not as one national bottleneck.</li>
+<li>Firestore live sync removes the need for a custom real-time server.</li>
+</ul>
+
+<h2>6. Potential Challenges and Risks</h2>
+<table>
+<thead><tr><th style="width:5%">#</th><th style="width:40%">Challenge / Risk</th><th>Impact</th></tr></thead>
+<tbody>
+<tr><td>R1</td><td><strong>Connectivity collapse</strong> in the disaster zone &mdash; towers down, no data</td><td>Citizens can't reach the app; field teams can't get updates</td></tr>
+<tr><td>R2</td><td><strong>False / duplicate / panic reports</strong> flooding the queue</td><td>Allocation skewed toward noise; real CRITICAL cases delayed</td></tr>
+<tr><td>R3</td><td><strong>LLM unavailable or wrong</strong> (hosted API down, model hallucination)</td><td>Garbled triage; misrouted resources</td></tr>
+<tr><td>R4</td><td><strong>Stale or inaccurate resource data</strong> &mdash; a &ldquo;shelter&rdquo; that's full, a team already deployed</td><td>Allocator sends units where they can't help</td></tr>
+<tr><td>R5</td><td><strong>Map / geo API quota or outage</strong> (Google Places, Overpass mirrors flaky)</td><td>Facility discovery thin; ETAs degrade</td></tr>
+<tr><td>R6</td><td><strong>Authority adoption &amp; trust</strong> &mdash; control rooms rely on phone + paper; an opaque &ldquo;AI dispatch&rdquo; is a non-starter</td><td>Platform ignored during a real event</td></tr>
+<tr><td>R7</td><td><strong>Official-alert dependency</strong> &mdash; SACHET feed format changes or blocks the proxy</td><td>Alert layer goes blank</td></tr>
+<tr><td>R8</td><td><strong>Data privacy</strong> &mdash; citizen location, health status, phone numbers</td><td>Legal exposure; citizen distrust</td></tr>
+<tr><td>R9</td><td><strong>Surge load</strong> &mdash; thousands of simultaneous reports in the first hour</td><td>Latency, dropped writes</td></tr>
+<tr><td>R10</td><td><strong>Language / literacy barriers</strong> &mdash; citizen can't type, can't read the app</td><td>Under-reporting from the most vulnerable</td></tr>
+</tbody>
+</table>
+
+<h2>7. Strategies for Overcoming These Challenges</h2>
+<table>
+<thead><tr><th style="width:10%">Risk</th><th>Mitigation (mostly already built)</th></tr></thead>
+<tbody>
+<tr><td>R1 Connectivity</td><td><strong>SMS decision-tree + IVR voice</strong> paths need zero data. The AI helpline has a full offline scripted flow; triage runs on deterministic rules with no server. KAVACH caches the district, boundary, and last state in <code>localStorage</code>. A <code>BroadcastChannel</code> / <code>localStorage</code> bridge keeps a same-device demo working with no network.</td></tr>
+<tr><td>R2 False reports</td><td>Severity is computed only from <strong>explicitly stated facts</strong> &mdash; &ldquo;please help&rdquo; alone is never escalated to a specific need. Clustering merges duplicate reports of the same event into one demand cluster. The operator has a status control on every incident and can mark a report resolved / invalid; resolved items sink out of the queue.</td></tr>
+<tr><td>R3 LLM failure</td><td>The LLM output is <strong>never trusted directly</strong> &mdash; Python re-derives every fact from the raw text. If the model is unreachable, <code>extract_facts</code> falls back to the pure rule engine and the helpline to a fixed multilingual script. The service still returns valid triage. Import is defensive so a missing model package cannot stop the container booting.</td></tr>
+<tr><td>R4 Stale resources</td><td>Every resource carries an explicit <code>available_units</code> / <code>status</code> field. <strong>Committing an allocation decrements availability in the database</strong>, so the next run only sees free units. Re-running discovery is an <strong>upsert keyed on (district, type, location)</strong> &mdash; it never resets the availability of units already dispatched. The operator can <code>PATCH</code> any resource to correct it.</td></tr>
+<tr><td>R5 Map / geo outage</td><td>Facility discovery races <strong>Photon + Overpass + Google Places</strong> in parallel and merges; missing categories are synthesised and flagged &ldquo;DERIVED&rdquo;. Distance / ETA falls back to a haversine estimate. The dashboard works on OSM data alone if Places is disabled.</td></tr>
+<tr><td>R6 Authority trust</td><td><strong>Every decision is explainable</strong> &mdash; priority and allocation come with a plain-English reason list, severity is a hard tier the operator understands, and the allocator only <em>recommends</em>: nothing dispatches until the operator presses Commit, and they can override any assignment. The UI mirrors a control-room whiteboard.</td></tr>
+<tr><td>R7 SACHET dependency</td><td>The Cloudflare Worker isolates the parsing logic in one place; the client tries Worker &rarr; local proxy &rarr; public CORS proxies. Alert absence degrades to a blank layer, not a crash.</td></tr>
+<tr><td>R8 Privacy</td><td>Prototype Firestore rules are open for the demo; the production plan is token auth per district control room, field-level access control, and PII minimisation (phone / health data stored only for the incident's lifetime). Data is never placed in URLs. <code>.gcloudignore</code> strips secrets from the deploy; the Admin key lives only in Secret Manager.</td></tr>
+<tr><td>R9 Surge load</td><td>Serverless autoscaling (Cloud Run scales out, Firestore is managed). District scoping partitions load. The in-memory layer is a cache over Firestore, which is the durable store, so a container restart loses nothing.</td></tr>
+<tr><td>R10 Language / literacy</td><td>Full <strong>English / Hindi / Hinglish</strong> UI, plus <strong>voice</strong> input and output (STT / TTS) so a non-literate citizen can complete a report by speaking. The SMS decision-tree uses single-digit replies. Hazard advisories are pre-translated.</td></tr>
+</tbody>
+</table>
+
+<h2>8. Potential Impact on the Target Audience</h2>
+<h3>Citizens in the disaster zone</h3>
+<ul>
+<li>A working channel to report their exact situation and <em>know</em> a team has been assigned &mdash; the 4-stage tracker removes the &ldquo;is anyone coming?&rdquo; panic.</li>
+<li>Hazard-specific, life-safety-first instructions in their own language, by voice if needed.</li>
+<li>Works from a basic phone over SMS / IVR when data is gone.</li>
+</ul>
+<h3>Local administration / DDMA operators</h3>
+<ul>
+<li>One screen replaces a wall of phone calls and paper registers: where the need is, what each cluster needs, which unit is closest and free, and in what order to act.</li>
+<li>The allocation engine turns &ldquo;who do I send?&rdquo; from a guess into a ranked, explained recommendation they can accept in one click or override.</li>
+<li>Live capacity view &mdash; they can see the district running out of ambulances before it happens.</li>
+</ul>
+<h3>NDRF / rescue &amp; relief teams</h3>
+<ul>
+<li>Dispatched to the right cluster, in severity order, with an ETA and a reason &mdash; not to whatever address came over the radio last.</li>
+<li>Load is spread across facilities instead of everything converging on one depot.</li>
+</ul>
+<h3>State / national disaster authorities</h3>
+<ul>
+<li>District-level dashboards roll up into a consistent operational picture.</li>
+<li>Every dispatch decision is logged with its rationale &mdash; an auditable record for post-event review and for training the model on real outcomes.</li>
+</ul>
+
+<h2>9. Benefits of the Solution</h2>
+<h3>Social</h3>
+<ul>
+<li><strong>Faster rescue for the most urgent cases.</strong> Strict severity ordering guarantees trapped / injured clusters are served before large but lower-acuity ones &mdash; directly targeting the &ldquo;golden hour&rdquo;.</li>
+<li><strong>Equity of access.</strong> Voice + SMS + multilingual intake reaches elderly, non-literate, and rural citizens who are invisible to app-only or English-only systems.</li>
+<li><strong>Reduced panic and rumour.</strong> An official two-way channel with status tracking and hazard-correct advice replaces social-media speculation.</li>
+<li><strong>Trust in institutions.</strong> Transparent, explainable decisions and a visible response loop rebuild citizen confidence in disaster machinery.</li>
+</ul>
+<h3>Economic</h3>
+<ul>
+<li><strong>Lower response cost per life saved.</strong> Better-ordered, better-matched dispatch means fewer wasted vehicle-hours and less duplicated effort.</li>
+<li><strong>Near-zero fixed cost.</strong> Serverless, free-tier-friendly, no hardware, no per-seat licences &mdash; deployable by a district authority on a minimal budget.</li>
+<li><strong>Reduced secondary losses.</strong> Faster evacuation and relief cut the economic damage that compounds when people are stranded for days.</li>
+<li><strong>Reusable asset.</strong> The same platform serves floods, cyclones, landslides, earthquakes, heatwaves &mdash; one build, many hazards.</li>
+</ul>
+<h3>Environmental / operational</h3>
+<ul>
+<li><strong>Efficient resource movement.</strong> Spread-aware allocation and real ETAs reduce unnecessary fuel burn from misrouted convoys.</li>
+<li><strong>Better use of existing infrastructure.</strong> Auto-discovery of real hospitals / shelters means the platform coordinates what a district already has rather than requiring new depots.</li>
+<li><strong>Data for resilience planning.</strong> Logged incident clusters and response times show authorities where shelters, teams, or stock are chronically short &mdash; informing where to invest before the next event.</li>
+</ul>
+<h3>Governance</h3>
+<ul>
+<li><strong>Auditability.</strong> Every priority score and allocation decision is recorded with its reasons, supporting after-action review and accountability.</li>
+<li><strong>Continuous improvement.</strong> The training pipeline is built so real incident-to-outcome data replaces the synthetic labels &mdash; the allocator gets measurably better with every disaster it assists.</li>
+</ul>
+
+</body>
+</html>

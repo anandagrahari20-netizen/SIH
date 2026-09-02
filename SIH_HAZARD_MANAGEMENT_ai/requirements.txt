@@ -1,0 +1,18 @@
+fastapi
+uvicorn[standard]
+pydantic
+python-dotenv
+python-multipart
+requests
+firebase-admin
+ollama            # small API client — analyzer/helpline call it, fall back if no Ollama server
+
+# Firebase Cloud Functions path (harmless on Render / Cloud Run — just unused there).
+# main.py deploys the FastAPI app as an HTTPS function; it carries its own tiny
+# ASGI->WSGI shim, so no extra adapter dependency is needed.
+firebase-functions>=0.4.2
+
+# Optional (NOT installed by default):
+#   faster-whisper -> /voice-analyze speech transcription (heavy: CTranslate2 +
+#                     a model download). The Kavach helpline uses browser STT
+#                     instead, so this is off unless you need /voice-analyze.

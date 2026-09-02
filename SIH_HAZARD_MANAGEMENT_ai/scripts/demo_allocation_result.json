@@ -1,0 +1,177 @@
+{
+  "generated_at": "2026-08-31T12:21:25.487794+00:00",
+  "clusters": [
+    {
+      "cluster_id": "DC-004",
+      "people_affected": 15,
+      "urgency_score": 66.83,
+      "priority": "CRITICAL",
+      "units_allocated": 2,
+      "coverage_ratio": 1.0,
+      "fully_served": true,
+      "decisions": [
+        {
+          "cluster_id": "DC-004",
+          "resource_id": "RES-NDRF-1",
+          "resource_name": "NDRF Team Cuttack",
+          "resource_type": "ndrf_team",
+          "units_allocated": 2,
+          "distance_km": 24.24,
+          "eta_minutes": 48.5,
+          "urgency_score": 66.83,
+          "suitability_score": 0.2036,
+          "allocation_score": 0.2036,
+          "reasons": [
+            "24.24 km away, ETA 48.5 min (haversine_estimate)"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "DC-001",
+      "people_affected": 9,
+      "urgency_score": 63.95,
+      "priority": "CRITICAL",
+      "units_allocated": 2,
+      "coverage_ratio": 1.0,
+      "fully_served": true,
+      "decisions": [
+        {
+          "cluster_id": "DC-001",
+          "resource_id": "RES-BOAT-1",
+          "resource_name": "Rescue Boats Cuttack",
+          "resource_type": "boat",
+          "units_allocated": 2,
+          "distance_km": 0.28,
+          "eta_minutes": 0.6,
+          "urgency_score": 63.95,
+          "suitability_score": 0.9543,
+          "allocation_score": 0.9543,
+          "reasons": [
+            "0.28 km away, ETA 0.6 min (haversine_estimate)"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "DC-006",
+      "people_affected": 4,
+      "urgency_score": 55.81,
+      "priority": "CRITICAL",
+      "units_allocated": 1,
+      "coverage_ratio": 1.0,
+      "fully_served": true,
+      "decisions": [
+        {
+          "cluster_id": "DC-006",
+          "resource_id": "RES-FIRE-1",
+          "resource_name": "Fire Brigade Berhampur",
+          "resource_type": "fire_brigade",
+          "units_allocated": 1,
+          "distance_km": 0.57,
+          "eta_minutes": 1.1,
+          "urgency_score": 55.81,
+          "suitability_score": 0.9147,
+          "allocation_score": 0.9147,
+          "reasons": [
+            "0.57 km away, ETA 1.1 min (haversine_estimate)"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "DC-002",
+      "people_affected": 40,
+      "urgency_score": 46.87,
+      "priority": "MEDIUM",
+      "units_allocated": 2,
+      "coverage_ratio": 1.0,
+      "fully_served": true,
+      "decisions": [
+        {
+          "cluster_id": "DC-002",
+          "resource_id": "RES-WATER-1",
+          "resource_name": "Water Tanker Puri",
+          "resource_type": "water_tanker",
+          "units_allocated": 1,
+          "distance_km": 1.31,
+          "eta_minutes": 2.6,
+          "urgency_score": 46.87,
+          "suitability_score": 0.8223,
+          "allocation_score": 0.8223,
+          "reasons": [
+            "1.31 km away, ETA 2.6 min (haversine_estimate)"
+          ]
+        },
+        {
+          "cluster_id": "DC-002",
+          "resource_id": "RES-SHELTER-1",
+          "resource_name": "Shelter Unit Puri",
+          "resource_type": "shelter_unit",
+          "units_allocated": 1,
+          "distance_km": 2.0,
+          "eta_minutes": 4.0,
+          "urgency_score": 46.87,
+          "suitability_score": 0.7519,
+          "allocation_score": 0.7519,
+          "reasons": [
+            "2.0 km away, ETA 4.0 min (haversine_estimate)"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "DC-003",
+      "people_affected": 1,
+      "urgency_score": 23.97,
+      "priority": "HIGH",
+      "units_allocated": 1,
+      "coverage_ratio": 1.0,
+      "fully_served": true,
+      "decisions": [
+        {
+          "cluster_id": "DC-003",
+          "resource_id": "RES-AMB-1",
+          "resource_name": "Ambulance Unit 1",
+          "resource_type": "ambulance",
+          "units_allocated": 1,
+          "distance_km": 0.34,
+          "eta_minutes": 0.7,
+          "urgency_score": 23.97,
+          "suitability_score": 0.9459,
+          "allocation_score": 0.9459,
+          "reasons": [
+            "0.34 km away, ETA 0.7 min (haversine_estimate)"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "DC-005",
+      "people_affected": 3,
+      "urgency_score": 18.76,
+      "priority": "MEDIUM",
+      "units_allocated": 1,
+      "coverage_ratio": 1.0,
+      "fully_served": true,
+      "decisions": [
+        {
+          "cluster_id": "DC-005",
+          "resource_id": "RES-FOOD-1",
+          "resource_name": "Food Supply Truck",
+          "resource_type": "food_supply",
+          "units_allocated": 1,
+          "distance_km": 70.14,
+          "eta_minutes": 140.3,
+          "urgency_score": 18.76,
+          "suitability_score": 0.0816,
+          "allocation_score": 0.0816,
+          "reasons": [
+            "70.14 km away, ETA 140.3 min (haversine_estimate)"
+          ]
+        }
+      ]
+    }
+  ],
+  "unserved_clusters": []
+}

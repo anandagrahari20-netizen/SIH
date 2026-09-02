@@ -1,0 +1,63 @@
+rules_version = '2';
+
+// Prototype rules for the SIH disaster-management demo.
+// - incidents / resources are written only by the AI backend using
+//   the Admin SDK (which bypasses these rules), so clients get
+//   read-only access.
+// - relocations are written by the dashboard's relocation-simulation
+//   panel straight from the browser, so clients may create/update
+//   (but not delete) them.
+// Everything else is denied.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /incidents/{doc} {
+      allow read: if true;
+      // Citizens file incidents from the Kavach app (create); the
+      // command-centre dashboard sets status / assignment (update).
+      // Prototype: open. Tighten with auth before production.
+      allow create, update: if true;
+      allow delete: if false;
+    }
+
+    match /resources/{doc} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    match /relocations/{doc} {
+      allow read: if true;
+      allow create, update: if true;
+      allow delete: if false;
+    }
+
+    // Live GPS of a citizen who has contacted the helpline / filed an
+    // SOS. The Kavach app streams position here (keyed by incident id)
+    // and the control-room dashboard subscribes to show it on the map.
+    match /caller_locations/{doc} {
+      allow read: if true;
+      allow create, update: if true;
+      allow delete: if false;
+    }
+
+    // Authority SACHET broadcasts fired from the RESQNET dashboard.
+    // Every Kavach device in / near the target area subscribes and
+    // shows the alert card, map polygon and push notification.
+    match /broadcasts/{doc} {
+      allow read: if true;
+      allow create, update: if true;
+      allow delete: if false;
+    }
+
+    // "I am safe" check-ins from citizens during an event.
+    match /safe_checkins/{doc} {
+      allow read: if true;
+      allow create, update: if true;
+      allow delete: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

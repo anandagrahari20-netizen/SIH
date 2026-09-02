@@ -1,0 +1,28 @@
+# What `gcloud run deploy --source .` will NOT upload to Cloud Build.
+# (Only files in THIS folder are ever considered — not the rest of your system.)
+
+# --- secrets: never upload ---
+firebase-service-account.json
+firebase-service-account*.json
+!firebase-service-account.example.json
+.env
+.env.*
+*.pem
+*.key
+key*.json
+
+# --- local / vcs / caches ---
+.git/
+.gitignore
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# --- not needed at runtime ---
+tests/
+scripts/
+test_*.py
+*.md

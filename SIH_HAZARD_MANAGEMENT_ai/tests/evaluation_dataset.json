@@ -1,0 +1,395 @@
+[
+  {
+    "id": "E001",
+    "text": "Ghar mein pani ghus gaya hai, papa injured hain, dadi ko saans lene mein dikkat hai aur hum 6 log hain. Hum ghar mein fase hue hain.",
+    "expected": {
+      "people_count": 6,
+      "trapped": true,
+      "injured": true,
+      "medical_issue": "breathing difficulty",
+      "vulnerable_people": ["elderly"],
+      "environmental_conditions": ["water_entered_house"],
+      "needs": ["rescue", "medical"]
+    }
+  },
+  {
+    "id": "E002",
+    "text": "Papa ko breathing mein problem ho rahi hai aur doctor chahiye.",
+    "expected": {
+      "people_count": null,
+      "trapped": null,
+      "injured": null,
+      "medical_issue": "breathing difficulty",
+      "vulnerable_people": [],
+      "environmental_conditions": [],
+      "needs": ["medical"]
+    }
+  },
+  {
+    "id": "E003",
+    "text": "Road ke paas bahut pani jama hai.",
+    "expected": {
+      "people_count": null,
+      "trapped": null,
+      "injured": null,
+      "medical_issue": null,
+      "vulnerable_people": [],
+      "environmental_conditions": ["waterlogging"],
+      "needs": []
+    }
+  },
+  {
+    "id": "E004",
+    "text": "Ghar mein pani aa gaya hai, hum 5 log hain.",
+    "expected": {
+      "people_count": 5,
+      "trapped": null,
+      "injured": null,
+      "medical_issue": null,
+      "vulnerable_people": [],
+      "environmental_conditions": ["water_entered_house"],
+      "needs": []
+    }
+  },
+  {
+    "id": "E005",
+    "text": "2 log injured hain aur ambulance chahiye.",
+    "expected": {
+      "people_count": 2,
+      "trapped": null,
+      "injured": true,
+      "injury_count": 2,
+      "medical_issue": "injury",
+      "vulnerable_people": [],
+      "environmental_conditions": [],
+      "needs": ["medical"]
+    }
+  },
+  {
+    "id": "E006",
+    "text": "The road is clear and everyone is safe. We do not need any help.",
+    "expected": {
+      "people_count": null,
+      "trapped": null,
+      "injured": null,
+      "medical_issue": null,
+      "vulnerable_people": [],
+      "environmental_conditions": [],
+      "needs": []
+    }
+  },
+  {
+    "id": "E007",
+    "text": "ghar m pani aa gya pls hlp 4 log h",
+    "expected": {
+      "people_count": 4,
+      "trapped": null,
+      "injured": null,
+      "medical_issue": null,
+      "vulnerable_people": [],
+      "environmental_conditions": ["water_entered_house"],
+      "needs": []
+    }
+  },
+  {
+    "id": "E008",
+    "text": "Meri dadi chal nahi pa rahi hain aur ghar mein pani bhar gaya hai.",
+    "expected": {
+      "people_count": null,
+      "trapped": null,
+      "injured": null,
+      "medical_issue": null,
+      "vulnerable_people": ["elderly", "mobility_impaired"],
+      "environmental_conditions": ["waterlogging"],
+      "needs": []
+    }
+  },
+  {
+    "id": "E009",
+    "text": "Hum 4 log fase hue hain, please rescue bhejo.",
+    "expected": {
+      "people_count": 4,
+      "trapped": true,
+      "injured": null,
+      "medical_issue": null,
+      "vulnerable_people": [],
+      "environmental_conditions": [],
+      "needs": ["rescue"]
+    }
+  },
+  {
+    "id": "E010",
+    "text": "I am trapped inside my house. Please rescue me.",
+    "expected": {
+      "people_count": null,
+      "trapped": true,
+      "injured": null,
+      "medical_issue": null,
+      "vulnerable_people": [],
+      "environmental_conditions": [],
+      "needs": ["rescue"]
+    }
+  },
+  {
+    "id": "E011",
+    "text": "Meri nani ko chot lagi hai.",
+    "expected": {
+      "people_count": null,
+      "trapped": null,
+      "injured": true,
+      "medical_issue": "injury",
+      "vulnerable_people": ["elderly"],
+      "environmental_conditions": [],
+      "needs": ["medical"]
+    }
+  },
+  {
+    "id": "E012",
+    "text": "3 people are injured and need medical help.",
+    "expected": {
+      "people_count": 3,
+      "trapped": null,
+      "injured": true,
+      "injury_count": 3,
+      "medical_issue": "injury",
+      "vulnerable_people": [],
+      "environmental_conditions": [],
+      "needs": ["medical"]
+    }
+  },
+  {
+    "id": "E013",
+    "text": "Road blocked hai, ambulance nahi aa rahi.",
+    "expected": {
+      "people_count": null,
+      "trapped": null,
+      "injured": null,
+      "medical_issue": null,
+      "vulnerable_people": [],
+      "environmental_conditions": ["road_blocked"],
+      "needs": []
+    }
+  },
+  {
+    "id": "E014",
+    "text": "There is a fire near our building.",
+    "expected": {
+      "people_count": null,
+      "trapped": null,
+      "injured": null,
+      "medical_issue": null,
+      "vulnerable_people": [],
+      "environmental_conditions": ["fire"],
+      "needs": []
+    }
+  },
+  {
+    "id": "E015",
+    "text": "Landslide hua hai aur road band hai.",
+    "expected": {
+      "people_count": null,
+      "trapped": null,
+      "injured": null,
+      "medical_issue": null,
+      "vulnerable_people": [],
+      "environmental_conditions": ["landslide", "road_blocked"],
+      "needs": []
+    }
+  },
+  {
+    "id": "E016",
+    "text": "My grandmother is elderly and needs a place to stay.",
+    "expected": {
+      "people_count": null,
+      "trapped": null,
+      "injured": null,
+      "medical_issue": null,
+      "vulnerable_people": ["elderly"],
+      "environmental_conditions": [],
+      "needs": ["shelter"]
+    }
+  },
+  {
+    "id": "E017",
+    "text": "Hume khana aur peene ka pani chahiye.",
+    "expected": {
+      "people_count": null,
+      "trapped": null,
+      "injured": null,
+      "medical_issue": null,
+      "vulnerable_people": [],
+      "environmental_conditions": [],
+      "needs": ["food", "water"]
+    }
+  },
+  {
+    "id": "E018",
+    "text": "We need evacuation. The flood water is rising.",
+    "expected": {
+      "people_count": null,
+      "trapped": null,
+      "injured": null,
+      "medical_issue": null,
+      "vulnerable_people": [],
+      "environmental_conditions": ["flooding"],
+      "needs": ["evacuation"]
+    }
+  },
+  {
+    "id": "E019",
+    "text": "Meri dadi safe hain, injured nahi hain aur trapped bhi nahi hain.",
+    "expected": {
+      "people_count": null,
+      "trapped": false,
+      "injured": false,
+      "medical_issue": null,
+      "vulnerable_people": ["elderly"],
+      "environmental_conditions": [],
+      "needs": []
+    }
+  },
+  {
+    "id": "E020",
+    "text": "No one is injured. We are safe.",
+    "expected": {
+      "people_count": null,
+      "trapped": null,
+      "injured": false,
+      "medical_issue": null,
+      "vulnerable_people": [],
+      "environmental_conditions": [],
+      "needs": []
+    }
+  },
+  {
+    "id": "E021",
+    "text": "Meri mummy ko medicine chahiye.",
+    "expected": {
+      "people_count": null,
+      "trapped": null,
+      "injured": null,
+      "medical_issue": "medicine needed",
+      "vulnerable_people": [],
+      "environmental_conditions": [],
+      "needs": ["medical"]
+    }
+  },
+  {
+    "id": "E022",
+    "text": "2 injured hain, ek ko bleeding ho rahi hai.",
+    "expected": {
+      "people_count": null,
+      "trapped": null,
+      "injured": true,
+      "injury_count": 2,
+      "medical_issue": "bleeding",
+      "vulnerable_people": [],
+      "environmental_conditions": [],
+      "needs": ["medical"]
+    }
+  },
+  {
+    "id": "E023",
+    "text": "Hum paanch log hain aur road blocked hai.",
+    "expected": {
+      "people_count": 5,
+      "trapped": null,
+      "injured": null,
+      "medical_issue": null,
+      "vulnerable_people": [],
+      "environmental_conditions": ["road_blocked"],
+      "needs": []
+    }
+  },
+  {
+    "id": "E024",
+    "text": "My child is stuck inside the house.",
+    "expected": {
+      "people_count": null,
+      "trapped": true,
+      "injured": null,
+      "medical_issue": null,
+      "vulnerable_people": ["child"],
+      "environmental_conditions": [],
+      "needs": ["rescue"]
+    }
+  },
+  {
+    "id": "E025",
+    "text": "Bachcha injured hai aur doctor chahiye.",
+    "expected": {
+      "people_count": null,
+      "trapped": null,
+      "injured": true,
+      "medical_issue": "injury",
+      "vulnerable_people": ["child"],
+      "environmental_conditions": [],
+      "needs": ["medical"]
+    }
+  },
+  {
+    "id": "E026",
+    "text": "Pani ghar mein aa gaya but hum trapped nahi hain.",
+    "expected": {
+      "people_count": null,
+      "trapped": false,
+      "injured": null,
+      "medical_issue": null,
+      "vulnerable_people": [],
+      "environmental_conditions": ["water_entered_house"],
+      "needs": []
+    }
+  },
+  {
+    "id": "E027",
+    "text": "Please help us, we are stuck and my father is hurt.",
+    "expected": {
+      "people_count": null,
+      "trapped": true,
+      "injured": true,
+      "medical_issue": "injury",
+      "vulnerable_people": [],
+      "environmental_conditions": [],
+      "needs": ["rescue", "medical"]
+    }
+  },
+  {
+    "id": "E028",
+    "text": "Cyclone aa raha hai. We need evacuation.",
+    "expected": {
+      "people_count": null,
+      "trapped": null,
+      "injured": null,
+      "medical_issue": null,
+      "vulnerable_people": [],
+      "environmental_conditions": ["cyclone"],
+      "needs": ["evacuation"]
+    }
+  },
+  {
+    "id": "E029",
+    "text": "My elderly mother cannot walk and needs medical attention.",
+    "expected": {
+      "people_count": null,
+      "trapped": null,
+      "injured": null,
+      "medical_issue": "medical attention",
+      "vulnerable_people": ["elderly", "mobility_impaired"],
+      "environmental_conditions": [],
+      "needs": ["medical"]
+    }
+  },
+  {
+    "id": "E030",
+    "text": "ghar m pani hai, 6 log hain, koi injured nahi hai aur hum stuck nahi hain.",
+    "expected": {
+      "people_count": 6,
+      "trapped": false,
+      "injured": false,
+      "medical_issue": null,
+      "vulnerable_people": [],
+      "environmental_conditions": ["water_entered_house"],
+      "needs": []
+    }
+  }
+]

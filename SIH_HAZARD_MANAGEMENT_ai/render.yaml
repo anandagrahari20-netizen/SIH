@@ -1,0 +1,37 @@
+# Render blueprint for the SIH Citizen Intelligence API.
+#
+# Deploy: push this repo to GitHub, then in the Render dashboard
+# "New +" -> "Blueprint" and point it at this file. After the first
+# deploy, set the secret env vars (marked sync: false) in the
+# service's Environment tab:
+#
+#   FIREBASE_SERVICE_ACCOUNT_JSON  = <contents of firebase-service-account.json, one line>
+#   GOOGLE_MAPS_API_KEY            = <Maps key with Distance Matrix API enabled>
+#
+# Then copy the service URL into SIH_HAZARD_MANAGEMENT/config.js
+# (RESQNET_AI_API_BASE).
+
+services:
+  - type: web
+    name: resqnet-ai
+    runtime: python
+    rootDir: SIH_HAZARD_MANAGEMENT_ai
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.9"
+      - key: FIREBASE_SERVICE_ACCOUNT_JSON
+        sync: false
+      - key: GOOGLE_MAPS_API_KEY
+        sync: false
+      # AI helpline LLM — optional. Ollama isn't available on Render's
+      # free tier, so set ONE of these for the conversational helpline
+      # (both have free tiers). Without any key it falls back to a fixed
+      # EN/HI/Hinglish question script.
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false

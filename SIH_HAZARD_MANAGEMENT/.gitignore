@@ -1,0 +1,16 @@
+# secrets
+**/firebase-service-account*.json
+!**/firebase-service-account*.example.json
+.env
+.env.*
+
+# deps / caches
+node_modules/
+.firebase/
+firebase-debug*.log
+*.log
+
+# junk
+*.patch
+.DS_Store
+.dataconnect

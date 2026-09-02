@@ -1,0 +1,180 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f8fafc;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+section[id] {
+  scroll-margin-top: 7.5rem;
+}
+
+.hero-bg {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8) 40%, rgba(255, 255, 255, 0) 70%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuBSqFDf_Oqi3OSvjlm9uHXQ1CblMR34JDYftl9Du9fpCSaWmYekaX4HlwYQuKzySSMMv1EnqbxgqZr0YvU8WIs4i6M1hT483AdniqoRtNoish8ixeUx0PhHCOgEhwfTgpzjMWA0jKiCY9Ey2eD3WwT3I9936PWrqR7ceWHV11rf7ef3_jpNJczgbfAAKDEaVkCBJ9yzdM_t9SQq28znJ5dS71dxCSHTl20kCiFQRIZlwu52FWpBQCrG-fPUQSFkV0v_LQ');
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.map-container {
+  background: #e5e7eb;
+  position: relative;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+body.dark-mode {
+  background-color: #0b1220;
+  color: #e5e7eb;
+}
+
+body.dark-mode .bg-white,
+body.dark-mode .bg-gray-50,
+body.dark-mode .bg-gray-100,
+body.dark-mode .bg-gray-50\/50,
+body.dark-mode .bg-gray-50\/30 {
+  background-color: #111827 !important;
+}
+
+body.dark-mode .bg-gray-200 {
+  background-color: #1f2937 !important;
+}
+
+body.dark-mode .border-gray-50,
+body.dark-mode .border-gray-100,
+body.dark-mode .border-gray-200 {
+  border-color: #243244 !important;
+}
+
+body.dark-mode .divide-gray-100 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #243244 !important;
+}
+
+body.dark-mode .text-gray-900,
+body.dark-mode .text-gray-800,
+body.dark-mode .text-gray-700 {
+  color: #f3f4f6 !important;
+}
+
+body.dark-mode .text-gray-600,
+body.dark-mode .text-gray-500,
+body.dark-mode .text-gray-400 {
+  color: #94a3b8 !important;
+}
+
+body.dark-mode .shadow-sm,
+body.dark-mode .shadow-md,
+body.dark-mode .shadow-lg {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28) !important;
+}
+
+body.dark-mode .map-container {
+  background: #0f172a;
+}
+
+body.dark-mode .hero-bg {
+  filter: saturate(0.95) brightness(0.78);
+}
+
+body.dark-mode .bg-brand-dark {
+  background-color: #050b14 !important;
+}
+
+body.dark-mode .bg-brand-blue {
+  background-color: #172a44 !important;
+}
+
+body.dark-mode .bg-brand-orangeLight,
+body.dark-mode .bg-brand-greenLight,
+body.dark-mode .bg-brand-redLight,
+body.dark-mode .bg-brand-yellowLight {
+  filter: saturate(0.7) brightness(0.55);
+}
+
+body.dark-mode a:hover,
+body.dark-mode button:hover {
+  filter: brightness(1.05);
+}
+
+/* ---------- Dark mode: fill the gaps ---------- */
+
+/* translucent white overlay panels (map legend, weather card, hints) */
+body.dark-mode .bg-white\/90,
+body.dark-mode .bg-white\/95,
+body.dark-mode .bg-white\/80,
+body.dark-mode .bg-gray-50\/60,
+body.dark-mode .bg-gray-50\/50,
+body.dark-mode .bg-gray-50\/30 {
+  background-color: rgba(17, 24, 39, 0.92) !important;
+  color: #e5e7eb;
+}
+body.dark-mode .bg-white\/10,
+body.dark-mode .bg-white\/15 { background-color: rgba(255,255,255,0.10) !important; }
+
+/* skeleton + progress track greys */
+body.dark-mode .bg-gray-100,
+body.dark-mode .bg-gray-100\/80 { background-color: #1f2937 !important; }
+body.dark-mode .bg-blue-100 { background-color: #1e3a5f !important; }
+
+/* headings that used the near-black brand blue become unreadable on dark */
+body.dark-mode .text-brand-blue { color: #7db1ff !important; }
+body.dark-mode .text-blue-600 { color: #7db1ff !important; }
+body.dark-mode .text-gray-300,
+body.dark-mode .text-gray-200 { color: #9aa7b8 !important; }
+
+/* form controls */
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+  background-color: #0f172a !important;
+  color: #e5e7eb !important;
+  border-color: #243244 !important;
+}
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder { color: #64748b !important; }
+
+/* broadcast severity chips — keep them legible, just dim the fills */
+body.dark-mode .bg-yellow-50,
+body.dark-mode .bg-orange-100,
+body.dark-mode .bg-red-100,
+body.dark-mode .bg-yellow-100,
+body.dark-mode .bg-orange-200,
+body.dark-mode .bg-red-200 { filter: saturate(0.8) brightness(0.6); }
+
+/* dispatch board <select> */
+body.dark-mode #dispatch-board select { background-color: #0f172a !important; color: #e5e7eb !important; }
+
+/* scrollbars */
+body.dark-mode .custom-scrollbar::-webkit-scrollbar-track { background: #0f172a; }
+body.dark-mode .custom-scrollbar::-webkit-scrollbar-thumb { background: #334155; }
+
+/* the Azure map canvas: soften the bright basemap so pins/polygons pop
+   (the JS also swaps to the 'night' style when it can) */
+body.dark-mode #live-map canvas { filter: brightness(0.82) contrast(1.05); }
+
+/* ---------- Small-screen tweaks that belong with the stylesheet ---------- */
+@media (max-width: 640px) {
+  section[id] { scroll-margin-top: 4.5rem; }
+}
